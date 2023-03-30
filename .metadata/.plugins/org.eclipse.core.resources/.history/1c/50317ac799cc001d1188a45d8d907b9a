@@ -1,0 +1,32 @@
+package com.oop.consumer;
+
+import java.util.List;
+
+import org.springframework.stereotype.Component;
+import org.springframework.web.client.RestTemplate;
+
+import com.netflix.appinfo.InstanceInfo;
+import com.netflix.discovery.DiscoveryClient;
+
+@Component
+public class AddressRestConsumer {
+	
+	private DiscoveryClient discoveryClient;
+	
+	public String callAddressShowMsg() {
+	 List<InstanceInfo> list = discoveryClient.getInstancesById("ADDRESS-SERVICE");
+	 
+	 	InstanceInfo instanceInfo = list.get(0);
+	 	
+	 	String uri = instanceInfo.getId()+"/addr/show";
+	 	
+	 	
+	 RestTemplate restTemplate = new RestTemplate();
+	 String resp = restTemplate.getForObject(uri,String.class);
+		
+		
+		return resp;
+	}
+	
+
+}

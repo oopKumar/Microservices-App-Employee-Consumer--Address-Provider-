@@ -1,0 +1,15 @@
+package com.oop.controller;
+
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+@RequestMapping("/addr")
+public class AddressController {
+	
+	@Get
+	public String show() {
+		return "Show Method";
+	}
+
+}

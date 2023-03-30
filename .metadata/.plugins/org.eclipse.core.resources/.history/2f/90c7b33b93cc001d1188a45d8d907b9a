@@ -1,0 +1,5 @@
+package com.oop.consumer;
+
+public class AddressRestConsumer {
+
+}
